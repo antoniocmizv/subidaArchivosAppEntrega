@@ -8,9 +8,11 @@ class Photo extends Model
 {
     use HasFactory;
 
+    protected $table = 'subir';
+
     protected $fillable = [
-        'name',
-        'original_name',
-        'path',
+        'nombre_original',
+        'nombre',
+        'link',
     ];
 }
