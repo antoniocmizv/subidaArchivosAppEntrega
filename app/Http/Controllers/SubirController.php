@@ -65,4 +65,20 @@ class SubirController extends Controller
 
         return response($file, 200)->header('Content-Type', $type);
     }
+
+    public function destroy($id)
+{
+    $photo = Photo::findOrFail($id);
+    $path = storage_path('app/private/' . $photo->link);
+
+    if (file_exists($path)) {
+        unlink($path);
+    }
+
+    $photo->delete();
+
+    return redirect()->route('subir.index')->with('success', 'Foto eliminada correctamente.');
 }
+
+}
+

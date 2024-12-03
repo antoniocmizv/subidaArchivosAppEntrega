@@ -10,7 +10,14 @@
                 <img src="{{ route('photos.view', $subir) }}" alt="{{ $subir->nombre_original }}" class="img-fluid" style="border: 5px solid #ddd; padding: 10px; max-width: 100%; height: auto;">
             </div>
             <div class="card-footer text-center">
-                <p><a href="{{ route('subir.index') }}" class="btn btn-primary">Volver a la lista</a></p>
+                <p>
+                    <a href="{{ route('subir.index') }}" class="btn btn-primary">Volver a la lista</a>
+                    <form action="{{ route('subir.destroy', $subir->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar esta foto?')">Eliminar</button>
+                    </form>
+                </p>
             </div>
         </div>
     </div>

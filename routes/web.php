@@ -7,3 +7,4 @@ Route::get('/subir/create', [SubirController::class, 'create'])->name('subir.cre
 Route::post('/subir', [SubirController::class, 'store'])->name('subir.store');
 Route::get('/subir/{id}', [SubirController::class, 'show'])->name('subir.show');
 Route::get('/photos/{photo}/view', [SubirController::class, 'view'])->name('photos.view');
+Route::delete('/subir/{id}', [SubirController::class, 'destroy'])->name('subir.destroy');

@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -32,6 +33,11 @@
                             </td>
                             <td>
                                 <a href="{{ route('subir.show', $subir->id) }}" class="btn btn-info">Ver</a>
+                                <form action="{{ route('subir.destroy', $subir->id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas eliminar esta foto?')">Eliminar</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
