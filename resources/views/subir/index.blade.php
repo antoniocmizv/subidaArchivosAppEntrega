@@ -42,8 +42,16 @@
                         </tr>
                     @endforeach
                 </tbody>
-            </table>
-            {{ $subirs->links() }}
+            <div class="d-flex justify-content-center"></div></div>
+                {{ $subirs->links('pagination::bootstrap-4') }}
+            </div>
+            <style>
+                .pagination svg {
+                    width: 20px;
+                    height: 20px;
+                }
+            </style>
+            
         @endif
     </div>
 @endsection
