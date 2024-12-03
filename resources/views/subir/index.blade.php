@@ -14,6 +14,7 @@
                         <th>Nombre Original</th>
                         <th>Nombre</th>
                         <th>Fecha</th>
+                        <th>Vista Previa</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -25,22 +26,18 @@
                             <td>{{ $subir->nombre }}</td>
                             <td>{{ $subir->created_at }}</td>
                             <td>
+                                <a href="{{ route('subir.show', $subir->id) }}">
+                                    <img src="{{ route('photos.view', $subir) }}" alt="{{ $subir->nombre_original }}" style="max-width: 100px; height: auto;">
+                                </a>
+                            </td>
+                            <td>
                                 <a href="{{ route('subir.show', $subir->id) }}" class="btn btn-info">Ver</a>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
-            <h2>Preview</h2>
-            <div class="row">
-                @foreach($subirs as $subir)
-                    <div class="col-md-4">
-                        <a href="{{ route('subir.show', $subir->id) }}">
-                            <img src="{{ route('photos.view', $subir) }}" alt="{{ $subir->nombre_original }}" style="max-width: 100%; height: auto;">
-                        </a>
-                    </div>
-                @endforeach
-            </div>
+            {{ $subirs->links() }}
         @endif
     </div>
 @endsection

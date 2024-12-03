@@ -12,7 +12,7 @@ class SubirController extends Controller
 {
     public function index()
     {
-        $subirs = Photo::orderBy('nombre_original')->get();
+        $subirs = Photo::orderBy('nombre_original')->paginate(2);
         return view('subir.index', compact('subirs'));
     }
 
